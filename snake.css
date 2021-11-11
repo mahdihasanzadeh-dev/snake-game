@@ -1,0 +1,101 @@
+#snake .grid{
+    display: grid;
+    column-gap: 1vmin;
+    row-gap: 1vmin;
+    background: beige;
+    width: 80vmin;
+    height: 80vmin;
+    margin: 0 auto;
+}
+#snake .grid .cell{
+    background: #d8345f;
+    position: relative;
+}
+#snake .grid .cell.isBody{
+    background: #588da8;
+}
+#snake .grid .cell.isHead{
+    background: #588da8;
+    border-radius: 40% 40% 0 0;
+}
+#snake .grid .cell.isTail{
+    background: #588da8;
+    border-radius: 0 0 40% 40% ;
+}
+.rightDirection{
+    transform: rotateZ(90deg);
+}
+.leftDirection{
+    transform: rotateZ(-90deg);
+}
+.upDirection{
+    transform: rotateZ(0deg);
+}
+.downDirection{
+    transform: rotateZ(180deg);
+}
+#snake .grid .cell.hasFood::after{
+    background: greenyellow;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    content: "🍏";
+}
+#snake .arrow-wrapper{
+    width: 80vmin;
+    margin: 0 auto;
+    display: none;
+    overflow: hidden;
+    margin-top: 2px;
+}
+.arrow-up-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrow-up,.arrow-left,.arrow-right,.arrow-down{
+    margin: 5px;
+    font-size: 28px;
+    width: 45px;
+    height: 45px;
+    background: #588da8;
+    padding: 10px;
+    color: #FFF;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrow-up::after{
+    content: "\2191";
+}
+.arrow-left::after{
+    content: "\2190";
+}
+.arrow-right::after{
+    content: "\2192";
+}
+.arrow-down::after{
+    content: "\2193";
+}
+.arrow-x-wrapper{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+}
+@media(max-width:640px){
+    #snake .arrow-wrapper{
+        display: flex;
+        flex-flow: column;
+        flex-direction: column;
+    }
+}
